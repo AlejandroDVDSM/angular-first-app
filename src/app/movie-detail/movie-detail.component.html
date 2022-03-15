@@ -1,0 +1,19 @@
+<div *ngIf="movie">
+    <h2>{{movie.name | uppercase}} ({{movie.release}}) Details</h2>
+    
+    <p>I have watched this movie {{movie.views}} times</p>
+    
+    <div><span>id: </span>{{movie.id}}</div>
+    <div>Name: {{movie.name}}</div>
+    <div>Year of release: {{movie.release}}</div>
+    <div>Director: {{movie.director}}</div>
+    <div>Running time: {{movie.runningTime}}</div>
+    <div>Scriptwriter: {{movie.scriptwriter}}</div>
+    <div>IMDb Rating (out of 10): {{movie.imdbRating}}</div>
+    <div>Metascore Rating (out of 100): {{movie.metascoreRating}}</div>
+    
+    <div>
+        <label for="movie-views">Views: </label>
+        <input type="number" id="movie-views" min="0" [(ngModel)]="movie.views" placeholder="views">
+    </div>
+</div>

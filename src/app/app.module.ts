@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 
-import { FormsModule } from '@angular/forms'; // NgModel
+import { FormsModule } from '@angular/forms';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component'; // NgModel
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
