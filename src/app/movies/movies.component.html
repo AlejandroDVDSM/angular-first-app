@@ -1,0 +1,14 @@
+<h2>{{movie.name | uppercase}} ({{movie.release}}) Details</h2>
+<p>I have watched this movie {{movie.views}} times</p>
+<div><span>id: </span>{{movie.id}}</div>
+<div><span>Name: </span>{{movie.name}}</div>
+<div><span>Year of release: </span>{{movie.release}}</div>
+<div><span>Director: </span>{{movie.director}}</div>
+<div><span>Scriptwriter: </span>{{movie.scriptwriter}}</div>
+<div><span>IMDb Rating (out of 10): </span>{{movie.imdbRating}}</div>
+<div><span>Metascore Rating (out of 100): </span>{{movie.metascoreRating}}</div>
+
+<div>
+    <label for="views">Views: </label>
+    <input type="number" id="views" min="0" [(ngModel)]="movie.views" placeholder="views">
+</div>
