@@ -1,14 +1,29 @@
-<h2>{{movie.name | uppercase}} ({{movie.release}}) Details</h2>
-<p>I have watched this movie {{movie.views}} times</p>
-<div><span>id: </span>{{movie.id}}</div>
-<div><span>Name: </span>{{movie.name}}</div>
-<div><span>Year of release: </span>{{movie.release}}</div>
-<div><span>Director: </span>{{movie.director}}</div>
-<div><span>Scriptwriter: </span>{{movie.scriptwriter}}</div>
-<div><span>IMDb Rating (out of 10): </span>{{movie.imdbRating}}</div>
-<div><span>Metascore Rating (out of 100): </span>{{movie.metascoreRating}}</div>
+<h2>Movie list</h2>
+<ul class="movies">
+    <li *ngFor="let movie of movies">
+        <button [class.selected]="movie === selectedMovie" type="button" (click)="onSelect(movie)">
+            <span class="badge">{{movie.id}}</span>
+            <span class="name">{{movie.name}}</span>
+        </button>
+    </li>
+</ul>
 
-<div>
-    <label for="views">Views: </label>
-    <input type="number" id="views" min="0" [(ngModel)]="movie.views" placeholder="views">
+<div *ngIf="selectedMovie">
+    <h2>{{selectedMovie.name | uppercase}} ({{selectedMovie.release}}) Details</h2>
+    
+    <p>I have watched this movie {{selectedMovie.views}} times</p>
+    
+    <div>id: {{selectedMovie.id}}</div>
+    <div>Name: {{selectedMovie.name}}</div>
+    <div>Year of release: {{selectedMovie.release}}</div>
+    <div>Director: {{selectedMovie.director}}</div>
+    <div>Running time: {{selectedMovie.runningTime}}</div>
+    <div>Scriptwriter: {{selectedMovie.scriptwriter}}</div>
+    <div>IMDb Rating (out of 10): {{selectedMovie.imdbRating}}</div>
+    <div>Metascore Rating (out of 100): {{selectedMovie.metascoreRating}}</div>
+    
+    <div>
+        <label for="movie-views">Views: </label>
+        <input type="number" id="movie-views" min="0" [(ngModel)]="selectedMovie.views" placeholder="views">
+    </div>
 </div>

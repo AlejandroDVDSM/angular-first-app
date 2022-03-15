@@ -13,7 +13,7 @@ h2, h3 {
 body {
     margin: 2em;
 }
-body, input[type="text"], button {
+body, input[type="text"], input[type="number"],  button {
     color: #333;
     font-family: Cambria, Georgia, serif;
 }
