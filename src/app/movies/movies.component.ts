@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message.service';
 import { Movie } from '../movie';
-import { MOVIES } from '../mock-movies';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-movies',
@@ -8,29 +9,23 @@ import { MOVIES } from '../mock-movies';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  
+  selectedMovie?: Movie;
 
-  movie: Movie = {
-    id: 1,
-    name: 'Parasite',
-    release: '2019',
-    runningTime: '2h 12min',
-    director: 'Bong Joon Ho',
-    scriptwriter: 'Han Jin-won',
-    imdbRating: 8.5,
-    metascoreRating: 96,
-    views: 0
-  };
+  movies: Movie[] = [];
 
-  movies = MOVIES;
-
-  constructor() { }
+  constructor(private movieService: MovieService, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.getMovies();
   }
-
-  selectedMovie?: Movie;
+  
   onSelect(movie: Movie): void {
     this.selectedMovie = movie;
+    this.messageService.add(`MoviesComponent: Selected movie id=${movie.id}`);
   }
-
+  
+  getMovies(): void {
+    this.movieService.getMovies().subscribe(movies => this.movies = movies);
+  }
 }
