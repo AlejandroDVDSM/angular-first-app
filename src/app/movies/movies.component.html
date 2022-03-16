@@ -1,9 +1,59 @@
 <h2>Movie list</h2>
 
-<ul class="movies">
-    <li *ngFor="let movie of movies">
-        <a routerLink="/detail/{{movie.id}}">
-            <span class="badge">{{movie.id}}</span> {{movie.name}}
-        </a>
-    </li>
-</ul>
+<div class="moviesComponentContainer">
+    <div class="newMovie">
+        <label for="new-movie-name">Movie name: </label>
+        <input id="new-movie-name" #movieName />
+        
+        <label for="new-movie-release">Movie release: </label>
+        <input id="new-movie-release" #movieRelease />
+        
+        <label for="new-movie-running-time">Movie running time: </label>
+        <input id="new-movie-running-time" #movieRunningTime />
+        
+        <label for="new-movie-director">Movie director: </label>
+        <input id="new-movie-director" #movieDirector />
+        
+        <label for="new-movie-scriptwriter">Movie scriptwriter: </label>
+        <input id="new-movie-scriptwriter" #movieScriptwriter />
+        
+        <label for="new-movie-imdb-rating">Movie IMDb Rating: </label>
+        <input type="number" min=0 max=10 id="new-movie-imdb-rating" #movieImdbRating />
+        
+        <label for="new-movie-metascore-rating">Movie Metascore rating: </label>
+        <input type="number" min=0 max=100 id="new-movie-metascore-rating" #movieMetascoreRating />
+        
+        <label for="new-movie-views">How many times have I watched this movie?: </label>
+        <input type="number" min=0 id="new-movie-views" #movieViews />
+    
+        <button type="button" class="add-button" 
+                              (click)="add(movieName.value, 
+                                           movieRelease.value,                               
+                                           movieRunningTime.value, 
+                                           movieDirector.value,
+                                           movieScriptwriter.value,
+                                           movieImdbRating.value,
+                                           movieMetascoreRating.value,
+                                           movieViews.value); 
+                                       
+                                           movieName.value='';
+                                           movieRelease.value='';
+                                           movieRunningTime.value='';
+                                           movieDirector.value='';
+                                           movieScriptwriter.value='';
+                                           movieImdbRating.value='';
+                                           movieMetascoreRating.value='';
+                                           movieViews.value='';">
+            Add movie
+        </button>
+   </div>
+   
+   <ul class="movies">
+       <li *ngFor="let movie of movies">
+           <a routerLink="/detail/{{movie.id}}">
+               <span class="badge">{{movie.id}}</span> {{movie.name}}
+           </a>
+           <button type="button" class="delete" title="Delete movie" (click)="delete(movie)">X</button>        
+       </li>
+   </ul>
+</div>
