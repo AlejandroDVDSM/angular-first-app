@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 AngularFirstApp is an implementation of the [Tour of Heroes](https://angular.io/tutorial) tutorial. The only variaton of this execution from the original one is that I have changed the thematic from heroes to movies.
 
-The link to the deployment of the application is the next: (angular-first-app.netlify.app).
+The link to the deployment of the application is the next: [](angular-first-app.netlify.app).
 
 ## Development server
 
