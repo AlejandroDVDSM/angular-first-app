@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
+AngularFirstApp is an implementation of the [Tour of Heroes](https://angular.io/tutorial) tutorial. The only variaton of this execution from the original one is that I have changed the thematic from heroes to movies.
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
