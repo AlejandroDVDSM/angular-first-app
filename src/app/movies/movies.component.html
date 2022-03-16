@@ -2,11 +2,8 @@
 
 <ul class="movies">
     <li *ngFor="let movie of movies">
-        <button [class.selected]="movie === selectedMovie" type="button" (click)="onSelect(movie)">
-            <span class="badge">{{movie.id}}</span>
-            <span class="name">{{movie.name}}</span>
-        </button>
+        <a routerLink="/detail/{{movie.id}}">
+            <span class="badge">{{movie.id}}</span> {{movie.name}}
+        </a>
     </li>
 </ul>
-
-<app-movie-detail [movie]="selectedMovie"></app-movie-detail>

@@ -16,4 +16,12 @@ export class MovieService {
     this.messageService.add('MovieService: fetched movies');
     return movies;
   }
+
+  getMovie(id: number): Observable<Movie> {
+    // For now, assume that a movie with the specified `id` always exists.
+    // Error handling will be added in the next step of the tutorial.
+    const movie = MOVIES.find(m => m.id === id)!;
+    this.messageService.add(`MovieService: fetched movie id=${id}`);
+    return of(movie);
+  }
 }

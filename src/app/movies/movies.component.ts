@@ -10,19 +10,12 @@ import { MovieService } from '../movie.service';
 })
 export class MoviesComponent implements OnInit {
   
-  selectedMovie?: Movie;
-
   movies: Movie[] = [];
 
   constructor(private movieService: MovieService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getMovies();
-  }
-  
-  onSelect(movie: Movie): void {
-    this.selectedMovie = movie;
-    this.messageService.add(`MoviesComponent: Selected movie id=${movie.id}`);
   }
   
   getMovies(): void {
